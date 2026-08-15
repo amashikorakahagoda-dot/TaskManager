@@ -372,5 +372,4 @@ For any questions or feedback, please contact the project maintainer.
 
 ---
 
-**Happy Coding!** 🚀#   T a s k M a n a g e r  
- 
+**Happy Coding!** 🚀
