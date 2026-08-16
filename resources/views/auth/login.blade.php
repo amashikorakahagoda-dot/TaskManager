@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="dark">  <!-- Changed to dark -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Hrivo') }} - Login</title>
+    <title>TaskMaster</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/icon.png">
+    <link rel="apple-touch-icon" href="/images/icon.png">
+
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -34,6 +39,13 @@
             border-radius: 50%;
             pointer-events: none;
         }
+
+        .logo-img {
+            width: 80px !important;  
+            height: 80px !important; 
+            object-fit: contain;
+        }
+        
     </style>
 </head>
 <body>
@@ -46,31 +58,18 @@
         <div class="auth-card">
 
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <i class="fas fa-moon" id="themeIcon"></i>
+                <i class="fas fa-sun" id="themeIcon"></i>  <!-- Changed to sun icon -->
             </button>
 
-            <div class="auth-header">
+           <div class="auth-header">
                 <div class="logo">
-                    <span class="logo-text">H</span>
+                    <img src="/images/icon.png" alt="Task Manager Logo" class="logo-img">
                 </div>
                 <h1>Welcome back</h1>
                 <p>Sign in to your account to continue</p>
             </div>
-
-            <div class="social-buttons">
-                <button class="social-btn" onclick="alert('Google login coming soon!')">
-                    <i class="fab fa-google" style="color: #ea4335;"></i>
-                    Google
-                </button>
-                <button class="social-btn" onclick="alert('Facebook login coming soon!')">
-                    <i class="fab fa-facebook" style="color: #1877f2;"></i>
-                    Facebook
-                </button>
-            </div>
-
-            <div class="divider">
-                <span>Or sign in with email</span>
-            </div>
+        
+           
 
             @if (session('status'))
                 <div class="alert alert-success">
@@ -141,13 +140,16 @@
 
     <!-- JavaScript -->
     <script>
+        // Force dark mode on login page
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const html = document.documentElement;
 
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', savedTheme);
-        updateIcon(savedTheme);
+        // Update icon for dark mode
+        themeIcon.className = 'fas fa-sun';
 
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
@@ -155,12 +157,13 @@
             
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            updateIcon(newTheme);
+            
+            if (newTheme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
         });
-
-        function updateIcon(theme) {
-            themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-        }
 
         @if(session('registration_success'))
             document.addEventListener('DOMContentLoaded', function() {

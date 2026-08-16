@@ -3,52 +3,45 @@
 @section('content')
 
 <!-- ============================================= -->
-<!-- ===== BANNER SECTION - NO IMAGE, ONLY GRADIENT ===== -->
+<!-- ===== BANNER SECTION - MATCHED SIZE & COLORS ===== -->
 <!-- ============================================= -->
-<div class="hero-banner w-100 mb-4 overflow-hidden position-relative" 
-     style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
-            min-height: 200px;
-            border-radius: 0;
-            border: none;
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-            width: 100vw;">
-    
-    <!-- Decorative Elements -->
-    <div class="position-absolute" style="top: -60px; right: -20px; width: 150px; height: 150px; background: rgba(251, 191, 36, 0.05); border-radius: 50%; z-index: 1;"></div>
-    <div class="position-absolute" style="bottom: -60px; left: -10px; width: 180px; height: 180px; background: rgba(251, 191, 36, 0.03); border-radius: 50%; z-index: 1;"></div>
-    
-    <!-- Glowing Dots -->
-    <div class="position-absolute" style="bottom: 20px; right: 40px; width: 6px; height: 6px; background: #fbbf24; border-radius: 50%; box-shadow: 0 0 30px rgba(251, 191, 36, 0.3); z-index: 1; animation: pulseDot 3s ease-in-out infinite;"></div>
-    <div class="position-absolute" style="top: 20px; left: 15%; width: 4px; height: 4px; background: #f59e0b; border-radius: 50%; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); z-index: 1; animation: pulseDot 2.5s ease-in-out infinite 1s;"></div>
-    
-    <div class="position-relative d-flex align-items-center" style="min-height: 200px; z-index: 2; padding: 30px 50px;">
-        <div class="container-fluid px-0">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <!-- Breadcrumb / Badge -->
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <span class="badge px-3 py-2 rounded-pill" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase; backdrop-filter: blur(5px);">
-                            <i class="fas fa-edit me-1" style="color: #fbbf24;"></i> Edit
-                        </span>
-                        <span class="badge px-3 py-2 rounded-pill" style="background: rgba(96, 165, 250, 0.12); border: 1px solid rgba(96, 165, 250, 0.08); color: #60a5fa; font-size: 0.7rem; backdrop-filter: blur(5px);">
-                            <i class="fas fa-folder-open me-1"></i> {{ $project->name }}
-                        </span>
+<div class="container-fluid px-4 mt-3">
+    <div class="row">
+        <div class="col-12">
+            <div class="hero-banner rounded-3 mb-4 p-4" 
+                 style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
+                        min-height: 120px;
+                        position: relative;
+                        overflow: hidden;">
+                
+                <!-- Decorative Circles -->
+                <div class="position-absolute" style="top: -30px; right: -15px; width: 100px; height: 100px; background: rgba(96, 165, 250, 0.05); border-radius: 50%;"></div>
+                <div class="position-absolute" style="bottom: -30px; left: -10px; width: 120px; height: 120px; background: rgba(167, 139, 250, 0.04); border-radius: 50%;"></div>
+                
+                <!-- Glowing Dots -->
+                <div class="position-absolute" style="bottom: 15px; right: 30px; width: 4px; height: 4px; background: #4f46e5; border-radius: 50%; box-shadow: 0 0 20px rgba(79, 70, 229, 0.3); z-index: 1; animation: pulseDot 3s ease-in-out infinite;"></div>
+                <div class="position-absolute" style="top: 15px; left: 20%; width: 3px; height: 3px; background: #6366f1; border-radius: 50%; box-shadow: 0 0 15px rgba(99, 102, 241, 0.3); z-index: 1; animation: pulseDot 2.5s ease-in-out infinite 1s;"></div>
+                
+                <!-- Content -->
+                <div class="position-relative d-flex flex-wrap align-items-center justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <span class="badge px-3 py-2 rounded-pill" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); font-size: 0.7rem;">
+                                <i class="fas fa-edit me-1" style="color: #4f46e5;"></i> 
+                                <span style="color: #ffffff; font-weight: 600;">Edit</span>
+                            </span>
+                            <span class="badge px-3 py-2 rounded-pill" style="background: rgba(96, 165, 250, 0.12); border: 1px solid rgba(96, 165, 250, 0.08); color: #60a5fa; font-size: 0.6rem; backdrop-filter: blur(5px);">
+                                <i class="fas fa-folder-open me-1"></i> {{ Str::limit($project->name, 20) }}
+                            </span>
+                        </div>
+                        <h1 class="fw-bold mb-0" style="font-size: 1.6rem; color: #ffffff; text-shadow: 0 2px 30px rgba(0,0,0,0.3);">
+                            <span style="background: linear-gradient(90deg, #4f46e5, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Edit</span>
+                            <span style="color: #ffffff; font-weight: 300; font-size: 1.3rem;">Project</span>
+                        </h1>
+                        <p class="text-white mb-0 mt-2" style="font-size: 0.85rem; max-width: 550px; text-shadow: 0 1px 10px rgba(0,0,0,0.2);">
+                            Update the project details below and save your changes
+                        </p>
                     </div>
-                    
-                    <!-- Main Topic -->
-                    <h1 class="fw-bold mb-2" style="font-size: 2.5rem; color: #ffffff; text-shadow: 0 2px 30px rgba(0,0,0,0.3); letter-spacing: -0.5px;">
-                        <span style="background: linear-gradient(90deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                            Edit
-                        </span>
-                        <span style="color: #ffffff; font-weight: 300;">Project</span>
-                    </h1>
-                    
-                    <!-- Description -->
-                    <p class="text-white/70 mb-0" style="font-size: 1rem; max-width: 600px; text-shadow: 0 1px 10px rgba(0,0,0,0.2);">
-                        <i class="fas fa-arrow-right me-2" style="color: #fbbf24;"></i> 
-                        Update the project details below and save your changes
-                    </p>
                 </div>
             </div>
         </div>
@@ -56,21 +49,34 @@
 </div>
 
 <!-- ============================================= -->
-<!-- ===== EDIT FORM ===== -->
+<!-- ===== EDIT FORM - MATCHED COLORS ===== -->
 <!-- ============================================= -->
 <div class="container-fluid px-4">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <!-- Success/Error Messages -->
+        <div class="col-lg-12 col-xl-12">
+            
             @if(session('success'))
-                <div class="alert alert-success border-0 rounded-3 mb-4" style="background: #d4edda; color: #155724; padding: 12px 20px; border-left: 4px solid #34d399;">
+                <div class="alert alert-success border-0 rounded-3 mb-3" style="background: #d4edda; color: #155724; padding: 10px 16px; border-left: 4px solid #22c55e; font-size: 0.85rem;">
                     <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
                 </div>
             @endif
 
             @if(session('error'))
-                <div class="alert alert-danger border-0 rounded-3 mb-4" style="background: #f8d7da; color: #721c24; padding: 12px 20px; border-left: 4px solid #ef4444;">
+                <div class="alert alert-danger border-0 rounded-3 mb-3" style="background: #f8d7da; color: #721c24; padding: 10px 16px; border-left: 4px solid #ef4444; font-size: 0.85rem;">
                     <i class="fas fa-exclamation-circle me-2"></i> {{ session('error') }}
+                </div>
+            @endif
+
+            <!-- Validation Errors -->
+            @if($errors->any())
+                <div class="alert alert-danger border-0 rounded-3 mb-3" style="background: #f8d7da; color: #721c24; padding: 10px 16px; border-left: 4px solid #ef4444; font-size: 0.85rem;">
+                    <i class="fas fa-exclamation-circle me-2"></i> 
+                    <strong>Please fix the following errors:</strong>
+                    <ul class="mb-0 mt-1" style="padding-left: 18px;">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             @endif
 
@@ -83,11 +89,11 @@
                         <!-- Project Name -->
                         <div class="mb-3">
                             <label for="name" class="form-label fw-semibold" style="color: #111827; font-size: 0.85rem;">
-                                <i class="fas fa-tag me-1" style="color: #fbbf24;"></i> Project Name <span class="text-danger">*</span>
+                                <i class="fas fa-tag me-1" style="color: #4f46e5;"></i> Project Name <span class="text-danger">*</span>
                             </label>
                             <input type="text" name="name" id="name" value="{{ old('name', $project->name) }}" 
                                    class="form-control rounded-3 @error('name') is-invalid @enderror" 
-                                   style="border: 2px solid #e5e7eb; padding: 12px 16px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;"
+                                   style="border: 2px solid #e5e7eb; padding: 10px 14px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;"
                                    placeholder="Enter project name" required>
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -97,11 +103,11 @@
                         <!-- Description -->
                         <div class="mb-3">
                             <label for="description" class="form-label fw-semibold" style="color: #111827; font-size: 0.85rem;">
-                                <i class="fas fa-align-left me-1" style="color: #fbbf24;"></i> Description
+                                <i class="fas fa-align-left me-1" style="color: #4f46e5;"></i> Description
                             </label>
-                            <textarea name="description" id="description" rows="4" 
+                            <textarea name="description" id="description" rows="3" 
                                       class="form-control rounded-3 @error('description') is-invalid @enderror" 
-                                      style="border: 2px solid #e5e7eb; padding: 12px 16px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;"
+                                      style="border: 2px solid #e5e7eb; padding: 10px 14px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;"
                                       placeholder="Enter project description">{{ old('description', $project->description) }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -112,11 +118,11 @@
                             <!-- Start Date -->
                             <div class="col-md-6 mb-3">
                                 <label for="start_date" class="form-label fw-semibold" style="color: #111827; font-size: 0.85rem;">
-                                    <i class="fas fa-calendar-alt me-1" style="color: #fbbf24;"></i> Start Date <span class="text-danger">*</span>
+                                    <i class="fas fa-calendar-alt me-1" style="color: #4f46e5;"></i> Start Date <span class="text-danger">*</span>
                                 </label>
                                 <input type="date" name="start_date" id="start_date" value="{{ old('start_date', $project->start_date) }}" 
                                        class="form-control rounded-3 @error('start_date') is-invalid @enderror" 
-                                       style="border: 2px solid #e5e7eb; padding: 12px 16px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;"
+                                       style="border: 2px solid #e5e7eb; padding: 10px 14px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;"
                                        required>
                                 @error('start_date')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -126,11 +132,11 @@
                             <!-- End Date -->
                             <div class="col-md-6 mb-3">
                                 <label for="end_date" class="form-label fw-semibold" style="color: #111827; font-size: 0.85rem;">
-                                    <i class="fas fa-calendar-check me-1" style="color: #fbbf24;"></i> End Date <span class="text-danger">*</span>
+                                    <i class="fas fa-calendar-check me-1" style="color: #4f46e5;"></i> End Date <span class="text-danger">*</span>
                                 </label>
                                 <input type="date" name="end_date" id="end_date" value="{{ old('end_date', $project->end_date) }}" 
                                        class="form-control rounded-3 @error('end_date') is-invalid @enderror" 
-                                       style="border: 2px solid #e5e7eb; padding: 12px 16px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;"
+                                       style="border: 2px solid #e5e7eb; padding: 10px 14px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;"
                                        required>
                                 @error('end_date')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -141,14 +147,14 @@
                         <!-- Status -->
                         <div class="mb-4">
                             <label for="status" class="form-label fw-semibold" style="color: #111827; font-size: 0.85rem;">
-                                <i class="fas fa-chart-simple me-1" style="color: #fbbf24;"></i> Status
+                                <i class="fas fa-chart-simple me-1" style="color: #4f46e5;"></i> Status
                             </label>
                             <select name="status" id="status" 
                                     class="form-select rounded-3 @error('status') is-invalid @enderror" 
-                                    style="border: 2px solid #e5e7eb; padding: 12px 16px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;">
-                                <option value="pending" {{ old('status', $project->status) == 'pending' ? 'selected' : '' }}>Pending</option>
-                                <option value="in_progress" {{ old('status', $project->status) == 'in_progress' ? 'selected' : '' }}>In Progress</option>
-                                <option value="completed" {{ old('status', $project->status) == 'completed' ? 'selected' : '' }}>Completed</option>
+                                    style="border: 2px solid #e5e7eb; padding: 10px 14px; font-size: 0.9rem; background: #f9fafb; transition: all 0.3s ease;">
+                                <option value="pending" {{ old('status', $project->status) == 'pending' ? 'selected' : '' }}>⏳ Pending</option>
+                                <option value="in_progress" {{ old('status', $project->status) == 'in_progress' ? 'selected' : '' }}>🔄 In Progress</option>
+                                <option value="completed" {{ old('status', $project->status) == 'completed' ? 'selected' : '' }}>✅ Completed</option>
                             </select>
                             @error('status')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -160,7 +166,7 @@
                             <a href="{{ route('projects.index') }}" class="btn rounded-3 px-4 py-2" style="background: #f8f9fa; color: #4a5568; border: 2px solid #e5e7eb; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
                                 <i class="fas fa-times me-2"></i> Cancel
                             </a>
-                            <button type="submit" class="btn rounded-3 px-4 py-2" style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #ffffff; border: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; box-shadow: 0 2px 12px rgba(251,191,36,0.2);">
+                            <button type="submit" class="btn rounded-3 px-4 py-2" style="background: linear-gradient(135deg, #4f46e5, #6366f1); color: #ffffff; border: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; box-shadow: 0 2px 12px rgba(79,70,229,0.2);">
                                 <i class="fas fa-save me-2"></i> Update Project
                             </button>
                         </div>
@@ -175,32 +181,27 @@
 <!-- ===== CSS ===== -->
 <!-- ============================================= -->
 <style>
-    /* ===== Pulse Animation ===== */
     @keyframes pulseDot {
         0%, 100% { opacity: 0.3; transform: scale(0.8); }
         50% { opacity: 1; transform: scale(1.3); }
     }
 
-    /* ===== Form Focus ===== */
     .form-control:focus, .form-select:focus {
-        border-color: #fbbf24 !important;
-        box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.08) !important;
+        border-color: #4f46e5 !important;
+        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08) !important;
         background: #ffffff !important;
     }
 
-    /* ===== Button Hover ===== */
     .btn:hover {
         transform: translateY(-2px);
         transition: all 0.3s ease;
     }
 
-    /* ===== Card Hover ===== */
     .card:hover {
         box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
         transition: all 0.3s ease;
     }
 
-    /* ===== Banner - Fixed Gradient ===== */
     .hero-banner {
         background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
     }
@@ -230,12 +231,6 @@
         color: #94a3b8 !important;
     }
 
-    [data-theme="dark"] .btn[style*="background: #f8f9fa"] {
-        background: rgba(255,255,255,0.05) !important;
-        color: #94a3b8 !important;
-        border-color: rgba(255,255,255,0.1) !important;
-    }
-
     [data-theme="dark"] .alert-success {
         background: rgba(52, 211, 153, 0.15) !important;
         color: #34d399 !important;
@@ -248,23 +243,46 @@
         border-color: rgba(239, 68, 68, 0.1) !important;
     }
 
+    [data-theme="dark"] .btn[style*="background: #f8f9fa"] {
+        background: rgba(255,255,255,0.05) !important;
+        color: #94a3b8 !important;
+        border-color: rgba(255,255,255,0.1) !important;
+    }
+
+    [data-theme="dark"] .btn[style*="background: linear-gradient(135deg, #4f46e5, #6366f1)"] {
+        background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
+    }
+
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
         .hero-banner h1 {
-            font-size: 1.8rem !important;
+            font-size: 1.3rem !important;
         }
         .hero-banner {
-            min-height: 150px !important;
+            min-height: 90px !important;
+            padding: 12px 16px !important;
         }
         .hero-banner .badge {
-            font-size: 0.6rem !important;
+            font-size: 0.5rem !important;
+            padding: 2px 8px !important;
         }
         .card-body {
-            padding: 20px !important;
+            padding: 16px !important;
         }
         .btn {
             font-size: 0.75rem !important;
-            padding: 10px 16px !important;
+            padding: 8px 14px !important;
+        }
+        .form-control, .form-select {
+            padding: 8px 12px !important;
+            font-size: 0.85rem !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .col-lg-8 {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
         }
     }
 </style>

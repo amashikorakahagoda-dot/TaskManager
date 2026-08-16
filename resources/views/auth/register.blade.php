@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Hrivo') }} - Register</title>
+    
+    <title>TaskMaster</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/icon.png">
+    <link rel="apple-touch-icon" href="/images/icon.png">
+
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -32,6 +38,14 @@
             border-radius: 50%;
             pointer-events: none;
         }
+
+        /* ===== ICON SIZE CHANGE ===== */
+        .logo-img {
+            width: 80px !important;
+            height: 80px !important;
+            object-fit: contain;
+        }
+        /* ========================== */
     </style>
 </head>
 <body>
@@ -49,27 +63,13 @@
 
             <div class="auth-header">
                 <div class="logo">
-                    <span class="logo-text">H</span>
+                    <img src="/images/icon.png" alt="Task Manager Logo" class="logo-img">
                 </div>
                 <h1>Create your account</h1>
                 <p>Start managing your team in minutes</p>
             </div>
 
-            <div class="social-buttons">
-                <button class="social-btn" onclick="alert('Google login coming soon!')">
-                    <i class="fab fa-google" style="color: #ea4335;"></i>
-                    Google
-                </button>
-                <button class="social-btn" onclick="alert('Facebook login coming soon!')">
-                    <i class="fab fa-facebook" style="color: #1877f2;"></i>
-                    Facebook
-                </button>
-            </div>
-
-            <div class="divider">
-                <span>Or sign up with email</span>
-            </div>
-
+          
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 

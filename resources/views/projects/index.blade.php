@@ -5,7 +5,7 @@
 <!-- ============================================= -->
 <!-- ===== BANNER SECTION - MATCHED DASHBOARD SIZE ===== -->
 <!-- ============================================= -->
-<div class="container-fluid px-4">
+<div class="container-fluid px-4 mt-3">
     <div class="row">
         <div class="col-12">
             <div class="hero-banner rounded-3 mb-4 p-4" 
@@ -30,11 +30,11 @@
                                 <i class="fas fa-check-circle me-1"></i> {{ $projects->total() }} Total
                             </span>
                         </div>
-                        <h1 class="fw-bold mb-0" style="font-size: 1.6rem; color: #ffffff; text-shadow: 0 2px 30px rgba(0,0,0,0.3);">
+                        <h1 class="fw-bold mt-2" style="font-size: 1.6rem; color: #ffffff; text-shadow: 0 2px 30px rgba(0,0,0,0.3);">
                             <span style="background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Projects</span>
                             <span style="color: #ffffff; font-weight: 300; font-size: 1.3rem;">Overview</span>
                         </h1>
-                        <p class="text-white/70 mb-0" style="font-size: 0.85rem; max-width: 550px; text-shadow: 0 1px 10px rgba(0,0,0,0.2);">
+                        <p class="text-white mb-0 mt-2" style="font-size: 0.85rem; max-width: 550px; text-shadow: 0 1px 10px rgba(0,0,0,0.2);">
                             Manage all your projects in one place
                         </p>
                     </div>
@@ -42,17 +42,17 @@
                     <!-- Quick Stats -->
                     <div class="d-flex gap-3 mt-3 mt-md-0">
                         <div class="text-center" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(5px); border-radius: 12px; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.04); min-width: 60px;">
-                            <p class="text-white/40 small mb-0" style="font-size: 0.45rem; text-transform: uppercase; letter-spacing: 0.3px;">Total</p>
+                            <p class="text-white small mb-0" style="font-size: 0.45rem; text-transform: uppercase; letter-spacing: 0.3px;">Total</p>
                             <h5 class="fw-bold mb-0" style="color: #ffffff; font-size: 1.1rem;">{{ $projects->total() }}</h5>
                         </div>
                         <div class="text-center" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(5px); border-radius: 12px; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.04); min-width: 60px;">
-                            <p class="text-white/40 small mb-0" style="font-size: 0.45rem; text-transform: uppercase; letter-spacing: 0.3px;">Active</p>
+                            <p class="text-white small mb-0" style="font-size: 0.45rem; text-transform: uppercase; letter-spacing: 0.3px;">Active</p>
                             <h5 class="fw-bold mb-0" style="color: #34d399; font-size: 1.1rem;">
                                 {{ $projects->filter(function($p) { return $p->status !== 'completed'; })->count() }}
                             </h5>
                         </div>
                         <div class="text-center" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(5px); border-radius: 12px; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.04); min-width: 60px;">
-                            <p class="text-white/40 small mb-0" style="font-size: 0.45rem; text-transform: uppercase; letter-spacing: 0.3px;">Completed</p>
+                            <p class="text-white small mb-0" style="font-size: 0.45rem; text-transform: uppercase; letter-spacing: 0.3px;">Completed</p>
                             <h5 class="fw-bold mb-0" style="color: #60a5fa; font-size: 1.1rem;">
                                 {{ $projects->filter(function($p) { return $p->status === 'completed'; })->count() }}
                             </h5>
@@ -90,7 +90,7 @@
                 <span class="input-group-text bg-white border-0" style="padding-left: 14px;">
                     <i class="fas fa-search" style="color: #6c757d; font-size: 0.8rem;"></i>
                 </span>
-                <input type="text" id="searchProject" class="form-control border-0 py-1" placeholder="Search projects..." style="background: #ffffff; font-size: 0.85rem;">
+                <input type="text" id="searchProject" class="form-control border-0 py-2" placeholder="Search projects..." style="background: #ffffff; font-size: 0.85rem;">
             </div>
         </div>
         <div class="col-md-4">
@@ -154,10 +154,10 @@
                                         <a href="{{ route('projects.edit', $project) }}" class="btn btn-sm rounded-3" style="background: rgba(251, 191, 36, 0.08); color: #fbbf24; border: none; font-size: 0.65rem; padding: 4px 8px; transition: all 0.3s ease;" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('projects.destroy', $project) }}" method="POST" style="display:inline-block;">
+                                        <form action="{{ route('projects.destroy', $project) }}" method="POST" class="delete-form" style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm rounded-3" style="background: rgba(239, 68, 68, 0.08); color: #ef4444; border: none; font-size: 0.65rem; padding: 4px 8px; transition: all 0.3s ease;" onclick="return confirm('Are you sure you want to delete this project?')" title="Delete">
+                                            <button type="button" class="btn btn-sm rounded-3 btn-delete" style="background: rgba(239, 68, 68, 0.08); color: #ef4444; border: none; font-size: 0.65rem; padding: 4px 8px; transition: all 0.3s ease;" title="Delete">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>
@@ -200,7 +200,7 @@
 </div>
 
 <!-- ============================================= -->
-<!-- ===== SEARCH & FILTER JAVASCRIPT ===== -->
+<!-- ===== SEARCH & FILTER & SWEETALERT JAVASCRIPT ===== -->
 <!-- ============================================= -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -209,12 +209,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const rows = document.querySelectorAll('#projectTableBody tr');
 
     function filterProjects() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const statusFilter = filterStatus.value;
+        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+        const statusFilter = filterStatus ? filterStatus.value : 'all';
 
         rows.forEach(row => {
-            const name = row.querySelector('.project-name').textContent.toLowerCase();
-            const status = row.querySelector('.project-status').dataset.status;
+            const nameEl = row.querySelector('.project-name');
+            const statusEl = row.querySelector('.project-status');
+            
+            if (!nameEl || !statusEl) return;
+            
+            const name = nameEl.textContent.toLowerCase();
+            const status = statusEl.dataset.status;
 
             let show = true;
             if (searchTerm && !name.includes(searchTerm)) show = false;
@@ -223,8 +228,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    searchInput.addEventListener('keyup', filterProjects);
-    filterStatus.addEventListener('change', filterProjects);
+    if (searchInput) searchInput.addEventListener('keyup', filterProjects);
+    if (filterStatus) filterStatus.addEventListener('change', filterProjects);
+
+    // SweetAlert2 Delete Confirmation
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const form = this.closest('.delete-form');
+            
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this project deletion!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#6b7280',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel',
+                customClass: {
+                    popup: 'rounded-4',
+                    confirmButton: 'px-4 py-2 rounded-3',
+                    cancelButton: 'px-4 py-2 rounded-3'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
 });
 </script>
 

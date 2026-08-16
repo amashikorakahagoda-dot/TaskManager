@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Hrivo') }} - Reset Password</title>
+    
+    <title>TaskMaster</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/icon.png">
+    <link rel="apple-touch-icon" href="/images/icon.png">
+
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -72,6 +78,12 @@
         .back-to-login i {
             font-size: 14px;
         }
+         
+        .logo-img {
+            width: 80px !important;  
+            height: 80px !important; 
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
@@ -88,9 +100,9 @@
             </button>
 
             <div class="auth-header">
-                <div class="logo">
-                    <span class="logo-text">H</span>
-                </div>
+                 <div class="logo">
+        <img src="/images/icon.png" alt="Task Manager Logo" class="logo-img">
+    </div>
                 <h1>Reset Password</h1>
                 <p>We'll send you a reset link</p>
             </div>

@@ -14,12 +14,10 @@
     $recentProjects = $projects->take(5);
     $recentTasks = $projects->flatMap->tasks->sortByDesc('created_at')->take(5);
     
-    // For Charts
     $chartLabels = ['Pending', 'In Progress', 'Completed'];
     $chartData = [$pendingTasks, $inProgressTasks, $completedTasks];
     $chartColors = ['#fbbf24', '#60a5fa', '#34d399'];
     
-    // Project status counts for pie chart
     $projectStatusLabels = ['Pending', 'In Progress', 'Completed'];
     $projectStatusData = [
         $projects->where('status', 'pending')->count(),
@@ -44,7 +42,7 @@
 <!-- ============================================= -->
 <!-- ===== WELCOME BANNER ===== -->
 <!-- ============================================= -->
-<div class="container-fluid px-4">
+<div class="container-fluid px-4 mt-3">
     <div class="row">
         <div class="col-12">
             <div class="hero-banner rounded-3 mb-4 p-4" 
@@ -60,7 +58,7 @@
                 <!-- Content -->
                 <div class="position-relative d-flex flex-wrap align-items-center justify-content-between">
                     <div>
-                        <div class="d-flex align-items-center gap-2 mb-1">
+                        <div class="d-flex align-items-center gap-2 mb-3">
                             <span class="badge px-3 py-2 rounded-pill" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); font-size: 0.7rem;">
                                 <i class="fas fa-crown text-warning me-1"></i> 
                                 Welcome, <span style="color: #ffffff; font-weight: 600;">{{ Auth::user()->name }}</span>
@@ -69,7 +67,7 @@
                         <h1 class="fw-bold mb-1" style="font-size: 1.8rem; color: #ffffff; text-shadow: 0 2px 30px rgba(0,0,0,0.3);">
                             WELCOME TO <span style="color: #60a5fa; text-shadow: 0 0 30px rgba(96,165,250,0.2);">TASK MANAGER</span>
                         </h1>
-                        <p class="text-white/70 mb-0" style="font-size: 0.85rem; max-width: 550px; text-shadow: 0 1px 10px rgba(0,0,0,0.2);">
+                        <p class="text-white mb-0" style="font-size: 0.85rem; max-width: 550px; text-shadow: 0 1px 10px rgba(0,0,0,0.2);">
                             Manage your projects and tasks efficiently.
                         </p>
                     </div>
@@ -77,19 +75,19 @@
                     <!-- Quick Stats -->
                     <div class="d-flex gap-3 mt-3 mt-md-0">
                         <div class="text-center" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(5px); border-radius: 12px; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.04); min-width: 70px;">
-                            <p class="text-white/40 small mb-0" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.3px;">Projects</p>
+                            <p class="text-white small mb-0" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.3px;">Projects</p>
                             <h5 class="fw-bold mb-0" style="color: #ffffff; font-size: 1.2rem;">{{ $totalProjects }}</h5>
                         </div>
                         <div class="text-center" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(5px); border-radius: 12px; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.04); min-width: 70px;">
-                            <p class="text-white/40 small mb-0" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.3px;">Tasks</p>
+                            <p class="text-white small mb-0" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.3px;">Tasks</p>
                             <h5 class="fw-bold mb-0" style="color: #ffffff; font-size: 1.2rem;">{{ $totalTasks }}</h5>
                         </div>
                         <div class="text-center" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(5px); border-radius: 12px; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.04); min-width: 70px;">
-                            <p class="text-white/40 small mb-0" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.3px;">Completed</p>
+                            <p class="text-white small mb-0" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.3px;">Completed</p>
                             <h5 class="fw-bold mb-0" style="color: #34d399; font-size: 1.2rem;">{{ $completedTasks }}</h5>
                         </div>
                         <div class="text-center" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(5px); border-radius: 12px; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.04); min-width: 70px;">
-                            <p class="text-white/40 small mb-0" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.3px;">Pending</p>
+                            <p class="text-white small mb-0" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.3px;">Pending</p>
                             <h5 class="fw-bold mb-0" style="color: #fbbf24; font-size: 1.2rem;">{{ $pendingTasks }}</h5>
                         </div>
                     </div>
