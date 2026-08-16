@@ -6,7 +6,12 @@ use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 
+// Landing Page
 Route::get('/', function () {
+    return view('landing');
+})->name('landing');
+
+Route::get('/login', function () {
     return redirect()->route('login');
 });
 
