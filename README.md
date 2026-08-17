@@ -272,7 +272,7 @@ http://localhost:8000
 ### Login Page
 ![Login](public/screenshot/login.png)
 
-### Projects List
+### Register Page
 ![Projects](public/screenshot/register.png)
 
 ### Project Details
