@@ -254,7 +254,7 @@ http://localhost:8000
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](public/screenshot/dashboard.png)
 
 ### Login Page
 ![Login](screenshots/login.png)
@@ -375,5 +375,3 @@ For any questions or feedback, please contact the project maintainer.
 **Happy Coding!** 🚀
 
 
-
-<img src="/screenshot.dashbaord.png">
