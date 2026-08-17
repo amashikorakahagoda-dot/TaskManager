@@ -249,27 +249,50 @@ http://localhost:8000
 | **Email** | `demo@example.com` |
 | **Password** | `password123` |
 
+| Field | Value |
+|-------|-------|
+| **Email** | `migaraamashi@gmail.com` |
+| **Password** | `Migara@123456` |
+
+---
+
 ---
 
 ## 📸 Screenshots
+### Landing
+![Landing](public/screenshot/landingpage.png)
+![Landing](public/screenshot/landingpage1.png)
+![Landing](public/screenshot/landingpage2.png)
+![Landing](public/screenshot/landingpage3.png)
 
 ### Dashboard
 ![Dashboard](public/screenshot/dashboard.png)
+![Dashboard](public/screenshot/dashboard1.png)
 
 ### Login Page
-![Login](screenshots/login.png)
+![Login](public/screenshot/login.png)
 
 ### Projects List
-![Projects](screenshots/projects.png)
+![Projects](public/screenshot/register.png)
 
 ### Project Details
-![Project Details](screenshots/project-details.png)
+![Project Details](public/screenshot/project.png)
 
 ### Create Project
-![Create Project](screenshots/create-project.png)
+![Create Project](public/screenshot/project1.png)
 
 ### Edit Project
-![Edit Project](screenshots/edit-project.png)
+![Edit Project](public/screenshot/projectedit.png)
+
+### Create Task
+![Edit Project](public/screenshot/task.png)
+
+### Edit Task
+![Edit Project](public/screenshot/taskedit.png)
+
+
+### Show Task
+![Edit Project](public/screenshot/taskshow.png)
 
 ---
 
